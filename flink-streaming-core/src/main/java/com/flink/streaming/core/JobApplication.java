@@ -32,6 +32,7 @@ import java.util.List;
  * @Description:
  * @date 2020-06-23
  * @time 00:33
+ * flik core 入口程序
  */
 public class JobApplication {
 
