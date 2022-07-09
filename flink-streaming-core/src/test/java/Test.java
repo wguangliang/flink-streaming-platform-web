@@ -35,6 +35,10 @@ public class Test {
         }
     }
 
+    /**
+     * 解析定义online.sql文件中的语句
+     * @throws IOException
+     */
     @org.junit.Test
     public void sqlFileParser() throws IOException {
         // 目录定位test
@@ -50,6 +54,53 @@ public class Test {
 
 
         List<String> sql = Files.readAllLines(Paths.get("src/test/java/online.sql"));
+
+        List<SqlCommandCall> sqlCommandCallList = SqlFileParser.fileToSql(sql);
+        for (SqlCommandCall sqlCommandCall : sqlCommandCallList) {
+            LogPrint.logPrint(sqlCommandCall);
+        }
+    }
+
+    /**
+     * 解析定义online2.sql文件中的语句
+     * @throws IOException
+     */
+    @org.junit.Test
+    public void sqlFileParser2() throws IOException {
+        // 目录定位test
+//        File file = new File("src/test/java/abc.txt");
+//        File file2 = new File("abc.txt");
+//        if (!file2.exists()) {
+//            System.out.println("create new file");
+//            file2.createNewFile();
+//        }
+
+
+        List<String> sql = Files.readAllLines(Paths.get("src/test/java/online2.sql"));
+
+        List<SqlCommandCall> sqlCommandCallList = SqlFileParser.fileToSql(sql);
+        for (SqlCommandCall sqlCommandCall : sqlCommandCallList) {
+            LogPrint.logPrint(sqlCommandCall);
+        }
+    }
+
+
+    /**
+     * 解析定义online3.sql文件中的语句: set语句
+     * @throws IOException
+     */
+    @org.junit.Test
+    public void sqlFileParser3() throws IOException {
+        // 目录定位test
+//        File file = new File("src/test/java/abc.txt");
+//        File file2 = new File("abc.txt");
+//        if (!file2.exists()) {
+//            System.out.println("create new file");
+//            file2.createNewFile();
+//        }
+
+
+        List<String> sql = Files.readAllLines(Paths.get("src/test/java/online3.sql"));
 
         List<SqlCommandCall> sqlCommandCallList = SqlFileParser.fileToSql(sql);
         for (SqlCommandCall sqlCommandCall : sqlCommandCallList) {

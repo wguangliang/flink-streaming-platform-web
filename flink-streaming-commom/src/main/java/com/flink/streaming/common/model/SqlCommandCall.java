@@ -12,9 +12,14 @@ import lombok.Data;
  */
 @Data
 public class SqlCommandCall {
-
+    /**
+     * sql类型的枚举。根据不同的enum，有不同的识别匹配逻辑
+      */
     public SqlCommand sqlCommand;
-
+    /**
+     * 如果是SET类型 operands[0]是key，operands[1]是value
+     * 如果是其他类型 operands[0]是单个完整sql。
+     */
     public String[] operands;
 
     public SqlCommandCall(SqlCommand sqlCommand, String[] operands) {

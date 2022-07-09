@@ -19,6 +19,7 @@ import java.io.IOException;
  * @Description:
  * @date 2021/1/17
  * @time 20:54
+ * 对StreamExecutionEnvironment做checkpoint配置
  */
 @Slf4j
 public class FsCheckPoint {

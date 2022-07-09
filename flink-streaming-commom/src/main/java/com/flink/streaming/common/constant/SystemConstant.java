@@ -20,7 +20,7 @@ public class SystemConstant {
 
     public final static String VIRGULE = "/";
 
-    public static final int DEFAULT_PATTERN_FLAGS = Pattern.CASE_INSENSITIVE | Pattern.DOTALL;
+    public static final int DEFAULT_PATTERN_FLAGS = Pattern.CASE_INSENSITIVE | Pattern.DOTALL;  // 让表达式忽略大小写匹配 和 可以换行（\n）匹配。 默认大小写敏感且无法匹配中间存在换行符\n
 
 
     public final static String JARVERSION = "lib/flink-streaming-core-1.4.0.RELEASE.jar";

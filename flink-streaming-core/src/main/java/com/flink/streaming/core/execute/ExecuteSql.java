@@ -17,8 +17,11 @@ import java.util.List;
 public class ExecuteSql {
 
     /**
-     * 执行sql
-     *
+     * 将不同的sql类型，装入sql操作集合statementSet，主要分
+     * SET 配置类： org.apache.flink.configuration.Configuration 进行配置
+     * INSERT 插入类： statementSet.addInsertSql插入
+     * 显示类： console打印
+     * 其他：例如CREATE类：  tEnv.executeSql 执行
      * @author zhuhuipei
      * @date 2021/3/21
      * @time 17:33

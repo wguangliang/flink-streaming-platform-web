@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
  * @Description:
  * @date 2020-06-23
  * @time 02:49
+ * sql类型的枚举。根据不同的enum，有不同的识别匹配逻辑
  */
 @Getter
 public enum SqlCommand {
@@ -100,6 +101,7 @@ public enum SqlCommand {
 
 
     SET(
+            //                      key    =  value
             "SET(\\s+(\\S+)\\s*=(.*))?",
             (operands) -> {
                 if (operands.length >= 3) {
@@ -109,6 +111,9 @@ public enum SqlCommand {
                 } else {
                     return Optional.empty();
                 }
+                System.out.println("operands[1] = " + operands[1]);
+                System.out.println("operands[2] = " + operands[2]);
+                //                                key          value
                 return Optional.of(new String[]{operands[1], operands[2]});
             }),
     
@@ -123,7 +128,7 @@ public enum SqlCommand {
 
 
     SqlCommand(String matchingRegex, Function<String[], Optional<String[]>> operandConverter) {
-        this.pattern = Pattern.compile(matchingRegex, SystemConstant.DEFAULT_PATTERN_FLAGS);
+        this.pattern = Pattern.compile(matchingRegex, SystemConstant.DEFAULT_PATTERN_FLAGS); // 可以匹配多行（不受\n影响）且 大小写不敏感
         this.operandConverter = operandConverter;
     }
 
